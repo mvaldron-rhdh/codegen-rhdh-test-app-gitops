@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: codegen-rhdh-test-app-gitops
+  description: This is GitOps manifest for codegen-rhdh-test-app   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-name: codegen-rhdh-test-app
+    janus-idp.io/tekton: codegen-rhdh-test-app 
+    backstage.io/kubernetes-id: codegen-rhdh-test-app 
+    backstage.io/techdocs-ref: dir:. 
+spec:
+  type: gitops
+  owner: user:default/michael-valdron 
+  lifecycle: experimental
+  dependsOn:
+    - component:codegen-rhdh-test-app
